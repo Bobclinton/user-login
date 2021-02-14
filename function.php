@@ -4,7 +4,7 @@ session_start();
 
 // connect to database
 $db = mysqli_connect('localhost', 'root', '', 'multi_login');
-
+ 
 // variable declaration
 $username = "";
 $email    = "";
@@ -28,14 +28,14 @@ function register(){
 	$password_2  =  e($_POST['password_2']);
 
 	// form validation: ensure that the form is correctly filled
-	if (empty($username)) { 
-		array_push($errors, "Username is required"); 
+	if (empty($username)) {
+		array_push($errors, "Username is required");
 	}
-	if (empty($email)) { 
-		array_push($errors, "Email is required"); 
+	if (empty($email)) {
+		array_push($errors, "Email is required");
 	}
-	if (empty($password_1)) { 
-		array_push($errors, "Password is required"); 
+	if (empty($password_1)) {
+		array_push($errors, "Password is required");
 	}
 	if ($password_1 != $password_2) {
 		array_push($errors, "The two passwords do not match");
@@ -62,7 +62,7 @@ function register(){
 
 			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
 			$_SESSION['success']  = "You are now logged in";
-			header('location: index.php');				
+			header('location: index.php');
 		}
 	}
 }
