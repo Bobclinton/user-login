@@ -5,26 +5,26 @@
         $id = htmlspecialchars($_POST['id'],ENT_QUOTES);
         $username = htmlspecialchars($_POST['username'],ENT_QUOTES);
         $email = htmlspecialchars($_POST['email'],ENT_QUOTES);
-        $password_1 = htmlspecialchars($_POST['password_1'],ENT_QUOTES);
-        $password_2 = htmlspecialchars($_POST['password_2'],ENT_QUOTES);
+        $password = htmlspecialchars($_POST['password_1'],ENT_QUOTES);
+//        $password_2 = htmlspecialchars($_POST['password_2'],ENT_QUOTES);
 
         //
         // form validation: ensure that the form is correctly filled
-        if (empty($username)) {
-            array_push($errors, "Username is required");
-        }
-        if (empty($email)) {
-            array_push($errors, "Email is required");
-        }
-        if (empty($password_1)) {
-            array_push($errors, "Password is required");
-        }
-        if ($password_1 != $password_2) {
-            array_push($errors, "The two passwords do not match");
-        }
+//        if (empty($username)) {
+//            array_push($errors, "Username is required");
+//        }
+//        if (empty($email)) {
+//            array_push($errors, "Email is required");
+//        }
+//        if (empty($password_1)) {
+//            array_push($errors, "Password is required");
+//        }
+//        if ($password_1 != $password_2) {
+//            array_push($errors, "The two passwords do not match");
+//        }
 
-        if (count($con->error)){
-            $password = md5($password_1);
+//        if (count($con->error)){
+//            $password = md5($password_1);
             $qry = mysqli_query($con,"INSERT INTO users (id,username,email,password)
                                 VALUES ('$id','$username','$email','$password')");
             if ($qry){
@@ -33,7 +33,7 @@
             else{
                 echo $con->error;
             }
-        }
+//        }
     }
 ?>
 
@@ -62,10 +62,10 @@
 		<label>Password</label>
 		<input type="password" name="password_1">
 	</div>
-	<div class="input-group">
-		<label>Confirm password</label>
-		<input type="password" name="password_2">
-	</div>
+<!--	<div class="input-group">-->
+<!--		<label>Confirm password</label>-->
+<!--		<input type="password" name="password_2">-->
+<!--	</div>-->
 	<div class="input-group">
 		<button type="submit" name="save" class="btn" name="register_btn">Register</button>
 	</div>
